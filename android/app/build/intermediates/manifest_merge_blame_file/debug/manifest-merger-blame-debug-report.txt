@@ -1,0 +1,389 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.dada_biryani"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="33" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->D:\Native\DaDa_Biryani\android\app\src\debug\AndroidManifest.xml:5:5-77
+11-->D:\Native\DaDa_Biryani\android\app\src\debug\AndroidManifest.xml:5:22-75
+12
+13    <uses-feature
+13-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:3:5-5:35
+14        android:name="android.hardware.camera"
+14-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:4:9-47
+15        android:required="true" />
+15-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:5:9-32
+16
+17    <uses-permission android:name="android.permission.INTERNET" />
+17-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:7:5-67
+17-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:7:22-64
+18    <uses-permission android:name="android.permission.CAMERA" />
+18-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:8:5-64
+18-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:8:22-62
+19    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+19-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:9:5-81
+19-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:9:22-78
+20    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+20-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:10:5-80
+20-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:10:22-77
+21    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+21-->[com.facebook.flipper:flipper:0.182.0] C:\Users\shrey\.gradle\caches\transforms-3\426f122c987f1f036bd238635db2dd0e\transformed\jetified-flipper-0.182.0\AndroidManifest.xml:16:5-76
+21-->[com.facebook.flipper:flipper:0.182.0] C:\Users\shrey\.gradle\caches\transforms-3\426f122c987f1f036bd238635db2dd0e\transformed\jetified-flipper-0.182.0\AndroidManifest.xml:16:22-73
+22    <uses-permission android:name="android.permission.WAKE_LOCK" />
+22-->[:react-native-firebase_storage] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-68
+22-->[:react-native-firebase_storage] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:22-65
+23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+23-->[:react-native-firebase_storage] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
+23-->[:react-native-firebase_storage] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-76
+24
+25    <queries>
+25-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:10:5-39:15
+26        <intent>
+26-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:11:9-17:18
+27            <action android:name="android.intent.action.VIEW" />
+27-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:12:13-65
+27-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:12:21-62
+28
+29            <data
+29-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:14:13-16:38
+30                android:mimeType="*/*"
+30-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:15:17-39
+31                android:scheme="*" />
+31-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:16:17-35
+32        </intent>
+33        <intent>
+33-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:18:9-27:18
+34            <action android:name="android.intent.action.VIEW" />
+34-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:12:13-65
+34-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:12:21-62
+35
+36            <category android:name="android.intent.category.BROWSABLE" />
+36-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:21:13-74
+36-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:21:23-71
+37
+38            <data
+38-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:14:13-16:38
+39                android:host="pay"
+40                android:mimeType="*/*"
+40-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:15:17-39
+41                android:scheme="upi" />
+41-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:16:17-35
+42        </intent>
+43        <intent>
+43-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:28:9-30:18
+44            <action android:name="android.intent.action.MAIN" />
+44-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:28:13-65
+44-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:28:21-62
+45        </intent>
+46        <intent>
+46-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:31:9-35:18
+47            <action android:name="android.intent.action.SEND" />
+47-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:32:13-65
+47-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:32:21-62
+48
+49            <data android:mimeType="*/*" />
+49-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:14:13-16:38
+49-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:15:17-39
+50        </intent>
+51        <intent>
+51-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:36:9-38:18
+52            <action android:name="rzp.device_token.share" />
+52-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:37:13-61
+52-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:37:21-58
+53        </intent>
+54    </queries>
+55
+56    <uses-feature
+56-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\shrey\.gradle\caches\transforms-3\308f284a124b1766f0cba90d00f03009\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+57        android:glEsVersion="0x00020000"
+57-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\shrey\.gradle\caches\transforms-3\308f284a124b1766f0cba90d00f03009\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+58        android:required="true" />
+58-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\shrey\.gradle\caches\transforms-3\308f284a124b1766f0cba90d00f03009\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+59
+60    <application
+60-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:12:5-32:19
+61        android:name="com.dada_biryani.MainApplication"
+61-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:13:7-38
+62        android:allowBackup="false"
+62-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:17:7-34
+63        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+63-->[androidx.core:core:1.8.0] C:\Users\shrey\.gradle\caches\transforms-3\f91bddac5c5a1ea6f3ed77efc5a301a8\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+64        android:debuggable="true"
+65        android:icon="@mipmap/ic_launcher"
+65-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:15:7-41
+66        android:label="@string/app_name"
+66-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:14:7-39
+67        android:roundIcon="@mipmap/ic_launcher_round"
+67-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:16:7-52
+68        android:theme="@style/AppTheme"
+68-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:18:7-38
+69        android:usesCleartextTraffic="true" >
+69-->D:\Native\DaDa_Biryani\android\app\src\debug\AndroidManifest.xml:8:9-44
+70        <activity
+70-->D:\Native\DaDa_Biryani\android\app\src\debug\AndroidManifest.xml:11:9-111
+71            android:name="com.facebook.react.devsupport.DevSettingsActivity"
+71-->D:\Native\DaDa_Biryani\android\app\src\debug\AndroidManifest.xml:11:19-83
+72            android:exported="false" />
+72-->D:\Native\DaDa_Biryani\android\app\src\debug\AndroidManifest.xml:11:84-108
+73        <activity
+73-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:19:7-31:18
+74            android:name="com.dada_biryani.MainActivity"
+74-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:20:9-37
+75            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+75-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:22:9-118
+76            android:exported="true"
+76-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:26:9-32
+77            android:forceDarkAllowed="false"
+77-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:25:9-43
+78            android:label="@string/app_name"
+78-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:21:9-41
+79            android:launchMode="singleTask"
+79-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:23:9-40
+80            android:windowSoftInputMode="adjustResize" >
+80-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:24:9-51
+81            <intent-filter>
+81-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:27:9-30:25
+82                <action android:name="android.intent.action.MAIN" />
+82-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:28:13-65
+82-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:28:21-62
+83
+84                <category android:name="android.intent.category.LAUNCHER" />
+84-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:29:13-73
+84-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:29:23-70
+85            </intent-filter>
+86        </activity>
+87
+88        <meta-data
+88-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:9-11:36
+89            android:name="app_data_collection_default_enabled"
+89-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-63
+90            android:value="true" />
+90-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-33
+91
+92        <service
+92-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:9-21:19
+93            android:name="com.google.firebase.components.ComponentDiscoveryService"
+93-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-84
+94            android:directBootAware="true"
+94-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-43
+95            android:exported="false" >
+95-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-37
+96            <meta-data
+96-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-20:85
+97                android:name="com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar"
+97-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:17-120
+98                android:value="com.google.firebase.components.ComponentRegistrar" />
+98-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:17-82
+99            <meta-data
+99-->[com.google.firebase:firebase-firestore:24.9.0] C:\Users\shrey\.gradle\caches\transforms-3\042e553bad40844f5aa9444ebcb79601\transformed\jetified-firebase-firestore-24.9.0\AndroidManifest.xml:17:13-19:85
+100                android:name="com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar"
+100-->[com.google.firebase:firebase-firestore:24.9.0] C:\Users\shrey\.gradle\caches\transforms-3\042e553bad40844f5aa9444ebcb79601\transformed\jetified-firebase-firestore-24.9.0\AndroidManifest.xml:18:17-122
+101                android:value="com.google.firebase.components.ComponentRegistrar" />
+101-->[com.google.firebase:firebase-firestore:24.9.0] C:\Users\shrey\.gradle\caches\transforms-3\042e553bad40844f5aa9444ebcb79601\transformed\jetified-firebase-firestore-24.9.0\AndroidManifest.xml:19:17-82
+102            <meta-data
+102-->[com.google.firebase:firebase-firestore:24.9.0] C:\Users\shrey\.gradle\caches\transforms-3\042e553bad40844f5aa9444ebcb79601\transformed\jetified-firebase-firestore-24.9.0\AndroidManifest.xml:20:13-22:85
+103                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+103-->[com.google.firebase:firebase-firestore:24.9.0] C:\Users\shrey\.gradle\caches\transforms-3\042e553bad40844f5aa9444ebcb79601\transformed\jetified-firebase-firestore-24.9.0\AndroidManifest.xml:21:17-111
+104                android:value="com.google.firebase.components.ComponentRegistrar" />
+104-->[com.google.firebase:firebase-firestore:24.9.0] C:\Users\shrey\.gradle\caches\transforms-3\042e553bad40844f5aa9444ebcb79601\transformed\jetified-firebase-firestore-24.9.0\AndroidManifest.xml:22:17-82
+105            <meta-data
+105-->[com.google.firebase:firebase-storage:20.3.0] C:\Users\shrey\.gradle\caches\transforms-3\7db16fafd0159a1212ade72c4913ef68\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:30:13-32:85
+106                android:name="com.google.firebase.components:com.google.firebase.storage.FirebaseStorageKtxRegistrar"
+106-->[com.google.firebase:firebase-storage:20.3.0] C:\Users\shrey\.gradle\caches\transforms-3\7db16fafd0159a1212ade72c4913ef68\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:31:17-118
+107                android:value="com.google.firebase.components.ComponentRegistrar" />
+107-->[com.google.firebase:firebase-storage:20.3.0] C:\Users\shrey\.gradle\caches\transforms-3\7db16fafd0159a1212ade72c4913ef68\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:32:17-82
+108            <meta-data
+108-->[com.google.firebase:firebase-storage:20.3.0] C:\Users\shrey\.gradle\caches\transforms-3\7db16fafd0159a1212ade72c4913ef68\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:33:13-35:85
+109                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+109-->[com.google.firebase:firebase-storage:20.3.0] C:\Users\shrey\.gradle\caches\transforms-3\7db16fafd0159a1212ade72c4913ef68\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:34:17-107
+110                android:value="com.google.firebase.components.ComponentRegistrar" />
+110-->[com.google.firebase:firebase-storage:20.3.0] C:\Users\shrey\.gradle\caches\transforms-3\7db16fafd0159a1212ade72c4913ef68\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:35:17-82
+111            <meta-data
+111-->[com.google.firebase:firebase-appcheck:17.1.0] C:\Users\shrey\.gradle\caches\transforms-3\75cca11909047950f80279864cba362c\transformed\jetified-firebase-appcheck-17.1.0\AndroidManifest.xml:25:13-27:85
+112                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckKtxRegistrar"
+112-->[com.google.firebase:firebase-appcheck:17.1.0] C:\Users\shrey\.gradle\caches\transforms-3\75cca11909047950f80279864cba362c\transformed\jetified-firebase-appcheck-17.1.0\AndroidManifest.xml:26:17-120
+113                android:value="com.google.firebase.components.ComponentRegistrar" />
+113-->[com.google.firebase:firebase-appcheck:17.1.0] C:\Users\shrey\.gradle\caches\transforms-3\75cca11909047950f80279864cba362c\transformed\jetified-firebase-appcheck-17.1.0\AndroidManifest.xml:27:17-82
+114            <meta-data
+114-->[com.google.firebase:firebase-appcheck:17.1.0] C:\Users\shrey\.gradle\caches\transforms-3\75cca11909047950f80279864cba362c\transformed\jetified-firebase-appcheck-17.1.0\AndroidManifest.xml:28:13-30:85
+115                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckRegistrar"
+115-->[com.google.firebase:firebase-appcheck:17.1.0] C:\Users\shrey\.gradle\caches\transforms-3\75cca11909047950f80279864cba362c\transformed\jetified-firebase-appcheck-17.1.0\AndroidManifest.xml:29:17-117
+116                android:value="com.google.firebase.components.ComponentRegistrar" />
+116-->[com.google.firebase:firebase-appcheck:17.1.0] C:\Users\shrey\.gradle\caches\transforms-3\75cca11909047950f80279864cba362c\transformed\jetified-firebase-appcheck-17.1.0\AndroidManifest.xml:30:17-82
+117            <meta-data
+117-->[com.google.firebase:firebase-common-ktx:20.4.2] C:\Users\shrey\.gradle\caches\transforms-3\75674215fde5ca8f919c2418ed88ca0a\transformed\jetified-firebase-common-ktx-20.4.2\AndroidManifest.xml:12:13-14:85
+118                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+118-->[com.google.firebase:firebase-common-ktx:20.4.2] C:\Users\shrey\.gradle\caches\transforms-3\75674215fde5ca8f919c2418ed88ca0a\transformed\jetified-firebase-common-ktx-20.4.2\AndroidManifest.xml:13:17-116
+119                android:value="com.google.firebase.components.ComponentRegistrar" />
+119-->[com.google.firebase:firebase-common-ktx:20.4.2] C:\Users\shrey\.gradle\caches\transforms-3\75674215fde5ca8f919c2418ed88ca0a\transformed\jetified-firebase-common-ktx-20.4.2\AndroidManifest.xml:14:17-82
+120            <meta-data
+120-->[com.google.firebase:firebase-common:20.4.2] C:\Users\shrey\.gradle\caches\transforms-3\03f67cfbcf95f87693a92c0410f9793e\transformed\jetified-firebase-common-20.4.2\AndroidManifest.xml:35:13-37:85
+121                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+121-->[com.google.firebase:firebase-common:20.4.2] C:\Users\shrey\.gradle\caches\transforms-3\03f67cfbcf95f87693a92c0410f9793e\transformed\jetified-firebase-common-20.4.2\AndroidManifest.xml:36:17-109
+122                android:value="com.google.firebase.components.ComponentRegistrar" />
+122-->[com.google.firebase:firebase-common:20.4.2] C:\Users\shrey\.gradle\caches\transforms-3\03f67cfbcf95f87693a92c0410f9793e\transformed\jetified-firebase-common-20.4.2\AndroidManifest.xml:37:17-82
+123        </service>
+124
+125        <provider
+125-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:9-27:38
+126            android:name="io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider"
+126-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-88
+127            android:authorities="com.dada_biryani.reactnativefirebaseappinitprovider"
+127-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:13-86
+128            android:exported="false"
+128-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:13-37
+129            android:initOrder="99" />
+129-->[:react-native-firebase_app] D:\Native\DaDa_Biryani\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:27:13-35
+130        <provider
+130-->[:react-native-image-picker] D:\Native\DaDa_Biryani\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-16:20
+131            android:name="com.imagepicker.ImagePickerProvider"
+131-->[:react-native-image-picker] D:\Native\DaDa_Biryani\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-63
+132            android:authorities="com.dada_biryani.imagepickerprovider"
+132-->[:react-native-image-picker] D:\Native\DaDa_Biryani\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-71
+133            android:exported="false"
+133-->[:react-native-image-picker] D:\Native\DaDa_Biryani\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
+134            android:grantUriPermissions="true" >
+134-->[:react-native-image-picker] D:\Native\DaDa_Biryani\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-47
+135            <meta-data
+135-->[:react-native-image-picker] D:\Native\DaDa_Biryani\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:70
+136                android:name="android.support.FILE_PROVIDER_PATHS"
+136-->[:react-native-image-picker] D:\Native\DaDa_Biryani\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-67
+137                android:resource="@xml/imagepicker_provider_paths" />
+137-->[:react-native-image-picker] D:\Native\DaDa_Biryani\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
+138        </provider>
+139
+140        <activity
+140-->[:react-native-razorpay] D:\Native\DaDa_Biryani\node_modules\react-native-razorpay\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-10:86
+141            android:name="com.razorpay.CheckoutActivity"
+141-->[:react-native-razorpay] D:\Native\DaDa_Biryani\node_modules\react-native-razorpay\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-57
+142            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+142-->[:react-native-razorpay] D:\Native\DaDa_Biryani\node_modules\react-native-razorpay\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-83
+143            android:exported="false"
+143-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:54:13-37
+144            android:theme="@style/CheckoutTheme" >
+144-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:55:13-49
+145            <intent-filter>
+145-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:56:13-58:29
+146                <action android:name="android.intent.action.MAIN" />
+146-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:28:13-65
+146-->D:\Native\DaDa_Biryani\android\app\src\main\AndroidManifest.xml:28:21-62
+147            </intent-filter>
+148        </activity>
+149
+150        <provider
+150-->[com.google.firebase:firebase-common:20.4.2] C:\Users\shrey\.gradle\caches\transforms-3\03f67cfbcf95f87693a92c0410f9793e\transformed\jetified-firebase-common-20.4.2\AndroidManifest.xml:23:9-28:39
+151            android:name="com.google.firebase.provider.FirebaseInitProvider"
+151-->[com.google.firebase:firebase-common:20.4.2] C:\Users\shrey\.gradle\caches\transforms-3\03f67cfbcf95f87693a92c0410f9793e\transformed\jetified-firebase-common-20.4.2\AndroidManifest.xml:24:13-77
+152            android:authorities="com.dada_biryani.firebaseinitprovider"
+152-->[com.google.firebase:firebase-common:20.4.2] C:\Users\shrey\.gradle\caches\transforms-3\03f67cfbcf95f87693a92c0410f9793e\transformed\jetified-firebase-common-20.4.2\AndroidManifest.xml:25:13-72
+153            android:directBootAware="true"
+153-->[com.google.firebase:firebase-common:20.4.2] C:\Users\shrey\.gradle\caches\transforms-3\03f67cfbcf95f87693a92c0410f9793e\transformed\jetified-firebase-common-20.4.2\AndroidManifest.xml:26:13-43
+154            android:exported="false"
+154-->[com.google.firebase:firebase-common:20.4.2] C:\Users\shrey\.gradle\caches\transforms-3\03f67cfbcf95f87693a92c0410f9793e\transformed\jetified-firebase-common-20.4.2\AndroidManifest.xml:27:13-37
+155            android:initOrder="100" />
+155-->[com.google.firebase:firebase-common:20.4.2] C:\Users\shrey\.gradle\caches\transforms-3\03f67cfbcf95f87693a92c0410f9793e\transformed\jetified-firebase-common-20.4.2\AndroidManifest.xml:28:13-36
+156
+157        <receiver
+157-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:42:9-49:20
+158            android:name="com.razorpay.RzpTokenReceiver"
+158-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:43:13-57
+159            android:exported="true" >
+159-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:44:13-36
+160            <intent-filter>
+160-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:46:13-48:29
+161                <action android:name="rzp.device_token.share" />
+161-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:37:13-61
+161-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:37:21-58
+162            </intent-filter>
+163        </receiver>
+164
+165        <meta-data
+165-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:61:9-63:58
+166            android:name="com.razorpay.plugin.googlepay_all"
+166-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:62:13-61
+167            android:value="com.razorpay.RzpGpayMerged" />
+167-->[com.razorpay:checkout:1.6.36] C:\Users\shrey\.gradle\caches\transforms-3\81becad00fd86d395ad3538468af0cce\transformed\jetified-checkout-1.6.36\AndroidManifest.xml:63:13-55
+168
+169        <activity
+169-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\shrey\.gradle\caches\transforms-3\0da3cdb9584e89dc47782341d0fe303c\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:23:9-27:75
+170            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+170-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\shrey\.gradle\caches\transforms-3\0da3cdb9584e89dc47782341d0fe303c\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:24:13-93
+171            android:excludeFromRecents="true"
+171-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\shrey\.gradle\caches\transforms-3\0da3cdb9584e89dc47782341d0fe303c\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:25:13-46
+172            android:exported="false"
+172-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\shrey\.gradle\caches\transforms-3\0da3cdb9584e89dc47782341d0fe303c\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:26:13-37
+173            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+173-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\shrey\.gradle\caches\transforms-3\0da3cdb9584e89dc47782341d0fe303c\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:27:13-72
+174        <!--
+175            Service handling Google Sign-In user revocation. For apps that do not integrate with
+176            Google Sign-In, this service will never be started.
+177        -->
+178        <service
+178-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\shrey\.gradle\caches\transforms-3\0da3cdb9584e89dc47782341d0fe303c\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:33:9-37:51
+179            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+179-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\shrey\.gradle\caches\transforms-3\0da3cdb9584e89dc47782341d0fe303c\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:34:13-89
+180            android:exported="true"
+180-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\shrey\.gradle\caches\transforms-3\0da3cdb9584e89dc47782341d0fe303c\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:35:13-36
+181            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+181-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\shrey\.gradle\caches\transforms-3\0da3cdb9584e89dc47782341d0fe303c\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:36:13-107
+182            android:visibleToInstantApps="true" /> <!-- Needs to be explicitly declared on P+ -->
+182-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\shrey\.gradle\caches\transforms-3\0da3cdb9584e89dc47782341d0fe303c\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:37:13-48
+183        <uses-library
+183-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\shrey\.gradle\caches\transforms-3\308f284a124b1766f0cba90d00f03009\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+184            android:name="org.apache.http.legacy"
+184-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\shrey\.gradle\caches\transforms-3\308f284a124b1766f0cba90d00f03009\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+185            android:required="false" />
+185-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\shrey\.gradle\caches\transforms-3\308f284a124b1766f0cba90d00f03009\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+186
+187        <activity
+187-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\shrey\.gradle\caches\transforms-3\7bc77237716ecf9e1a931527d9b3ecd9\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+188            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+188-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\shrey\.gradle\caches\transforms-3\7bc77237716ecf9e1a931527d9b3ecd9\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+189            android:exported="false"
+189-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\shrey\.gradle\caches\transforms-3\7bc77237716ecf9e1a931527d9b3ecd9\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+190            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+190-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\shrey\.gradle\caches\transforms-3\7bc77237716ecf9e1a931527d9b3ecd9\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+191
+192        <meta-data
+192-->[com.google.android.gms:play-services-basement:18.2.0] C:\Users\shrey\.gradle\caches\transforms-3\6ea5954c9161efc9a3dde92daf120e53\transformed\jetified-play-services-basement-18.2.0\AndroidManifest.xml:21:9-23:69
+193            android:name="com.google.android.gms.version"
+193-->[com.google.android.gms:play-services-basement:18.2.0] C:\Users\shrey\.gradle\caches\transforms-3\6ea5954c9161efc9a3dde92daf120e53\transformed\jetified-play-services-basement-18.2.0\AndroidManifest.xml:22:13-58
+194            android:value="@integer/google_play_services_version" />
+194-->[com.google.android.gms:play-services-basement:18.2.0] C:\Users\shrey\.gradle\caches\transforms-3\6ea5954c9161efc9a3dde92daf120e53\transformed\jetified-play-services-basement-18.2.0\AndroidManifest.xml:23:13-66
+195
+196        <provider
+196-->[androidx.emoji2:emoji2:1.2.0] C:\Users\shrey\.gradle\caches\transforms-3\dfd315444c5e010cf3f48c1ecae621af\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+197            android:name="androidx.startup.InitializationProvider"
+197-->[androidx.emoji2:emoji2:1.2.0] C:\Users\shrey\.gradle\caches\transforms-3\dfd315444c5e010cf3f48c1ecae621af\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+198            android:authorities="com.dada_biryani.androidx-startup"
+198-->[androidx.emoji2:emoji2:1.2.0] C:\Users\shrey\.gradle\caches\transforms-3\dfd315444c5e010cf3f48c1ecae621af\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+199            android:exported="false" >
+199-->[androidx.emoji2:emoji2:1.2.0] C:\Users\shrey\.gradle\caches\transforms-3\dfd315444c5e010cf3f48c1ecae621af\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+200            <meta-data
+200-->[androidx.emoji2:emoji2:1.2.0] C:\Users\shrey\.gradle\caches\transforms-3\dfd315444c5e010cf3f48c1ecae621af\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+201                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+201-->[androidx.emoji2:emoji2:1.2.0] C:\Users\shrey\.gradle\caches\transforms-3\dfd315444c5e010cf3f48c1ecae621af\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+202                android:value="androidx.startup" />
+202-->[androidx.emoji2:emoji2:1.2.0] C:\Users\shrey\.gradle\caches\transforms-3\dfd315444c5e010cf3f48c1ecae621af\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+203            <meta-data
+203-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\shrey\.gradle\caches\transforms-3\add8748153c81371ec6beac3b3a624da\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+204                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+204-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\shrey\.gradle\caches\transforms-3\add8748153c81371ec6beac3b3a624da\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+205                android:value="androidx.startup" />
+205-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\shrey\.gradle\caches\transforms-3\add8748153c81371ec6beac3b3a624da\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+206        </provider>
+207
+208        <meta-data
+208-->[com.facebook.soloader:soloader:0.10.5] C:\Users\shrey\.gradle\caches\transforms-3\2add1735ebfa5047b843e99834f8ccf7\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:12:9-14:37
+209            android:name="com.facebook.soloader.enabled"
+209-->[com.facebook.soloader:soloader:0.10.5] C:\Users\shrey\.gradle\caches\transforms-3\2add1735ebfa5047b843e99834f8ccf7\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:13:13-57
+210            android:value="false" />
+210-->[com.facebook.soloader:soloader:0.10.5] C:\Users\shrey\.gradle\caches\transforms-3\2add1735ebfa5047b843e99834f8ccf7\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:14:13-34
+211    </application>
+212
+213</manifest>
