@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   View,
   Text,
@@ -21,7 +22,6 @@ import firestore from '@react-native-firebase/firestore';
 
 import * as api from '../../Action/api'
 
-
 const Home = ({ navigation }) => {
 
   const [userData, setUserData] = useState({})
@@ -34,6 +34,10 @@ const Home = ({ navigation }) => {
     // console.log(userData)
   }, [])
 
+  // useEffect( () => {
+  //   // console.log("Updated user data: ",userData)
+  //   api.updateUserData(userData)
+  // },[userData])
   
   const getData = async () => {
     try {
@@ -80,13 +84,6 @@ const Home = ({ navigation }) => {
     }
 
   }
-
-  useEffect( () => {
-    // console.log("Updated user data: ",userData)
-    api.updateUserData(userData)
-
-  },[userData])
-
 
   return (
     <ScrollView style={styles.container}>

@@ -1,31 +1,61 @@
 import firestore, { FirebaseFirestoreTypes } from '@react-native-firebase/firestore';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
-export const updateUserData = async (userData) => {
-    const date = new Date()
+export const getDate = (dateInput) => {
+    const date = new Date(dateInput)
+    const options = {
+        timeZone: 'Asia/Kolkata',
+        hour12: true,
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+    };
+    const ISTDateString = date.toLocaleDateString('en-IN', options);
+    return ISTDateString
+}
 
-    // handle Days remaning
-    const startDate = userData.planPurched.planStartDate
-    let newUTCStartDate = new Date(startDate)
-    newUTCStartDate.setHours(0, 0, 0, 0)
-    if (date > newUTCStartDate) {
-        let diff = date - newUTCStartDate
-        diff = diff / (1000 * 60 * 60 * 24)
-        let DR = parseInt(userData.planPurched.planDayRemaning) - parseInt(diff)
-        // console.log(parseInt(parseInt(userData.planPurched.planDayRemaning)))
-
-        await firestore().collection('Users').doc(userData._id).update({
-            'planPurched.planDayRemaning':DR,
-            // 'orders.startDate':startDate
-        })
+export const getLeaveData = async (dateString) => {
+    try {
+        const data = await firestore().collection('Leave').doc(dateString).get()
+        if (data?._data?.leaveUsers != undefined) {
+            return data._data.leaveUsers
+        }
+    } catch (error) {
+        console.log('error in getting leave data')
     }
+
+}
+
+//getting user startdate and reducing it as the day changes
+export const updateUserData = async (userData) => {
+
+    // const date = getDate()
+
+    // // handle Days remaning
+    // const startDate = userData?.planPurched?.planStartDate
+    // let newUTCStartDate = new Date(startDate)
+    // newUTCStartDate.setHours(0, 0, 0, 0)
     // console.log(date)
+
+    // if (date > newUTCStartDate) {
+    //     let diff = date - newUTCStartDate
+    //     diff = diff / (1000 * 60 * 60 * 24)
+    //     let DR = parseInt(userData.planPurched.planDayRemaning) - parseInt(diff)
+    //     // console.log(parseInt(parseInt(userData.planPurched.planDayRemaning)))
+
+    //     await firestore().collection('Users').doc(userData._id).update({
+    //         'planPurched.planDayRemaning': DR,
+    //         // 'orders.startDate':startDate
+    //     })
+
+    //     console.log(DR)
+    // }
 }
 
 export const getOrderDetails = async () => {
 
-    let tempData: { id: string; data: FirebaseFirestoreTypes.DocumentData; }[] = [];
+    let tempData = [];
 
 
     let orderData = {

@@ -1,6 +1,6 @@
 import { addDays, format, getDate, isSameDay, parseISO, startOfWeek, subDays } from 'date-fns';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, FlatList } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 interface Props {
     date: Date;
@@ -38,7 +38,7 @@ const WeekTest: React.FC<Props> = ({ date, onChange }) => {
         setWeek(weekDays);
     }, [date]);
 
-    console.log(week)
+    // console.log(week)
 
 
     return (
