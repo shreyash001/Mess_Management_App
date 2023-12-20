@@ -2,16 +2,11 @@ import { addDays, format, getDate, isSameDay, parseISO, startOfWeek, subDays } f
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-interface Props {
-    date: Date;
-    onChange: (value: Date) => void;
-};
-
 
 // get week days
-export const getWeekDays = (date: Date) => {
+export const getWeekDays = (date) => {
 
-    const newBackDate = subDays(date, 7)
+    // const newBackDate = subDays(date, 7)
     const start = startOfWeek(date, { weekStartsOn: 1 });
 
     const final = [];
@@ -29,7 +24,7 @@ export const getWeekDays = (date: Date) => {
 };
 
 
-const WeekTest: React.FC<Props> = ({ date, onChange }) => {
+const WeekTest = ({ date, onChange }) => {
     const formattedDate = format(date,'yyyy-LL-dd')
     const [week, setWeek] = useState([]);
 
@@ -43,13 +38,6 @@ const WeekTest: React.FC<Props> = ({ date, onChange }) => {
 
     return (
         <View style={styles.container}>
-            {/* <FlatList data={week} renderItem={ (weekDay) => {
-                return(
-                    <View key={weekDay.formatted} style={styles.weekDayItem} >
-                        <Text style={styles.weekDayText}>{weekDay.formatted}</Text>
-                    </View>
-                )
-            }}    /> */}
 
             {week.map((weekDay) => {
                 const textStyles = [styles.label];

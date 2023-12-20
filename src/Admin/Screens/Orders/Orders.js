@@ -12,6 +12,7 @@ import {
 import React, { useEffect, useState } from 'react'
 import * as api from '../../../Action/api'
 import { useIsFocused } from '@react-navigation/native';
+import { TextView } from '../../../Reusables/TextView';
 
 const Orders = () => {
 
@@ -44,30 +45,11 @@ const Orders = () => {
 
             <View style={styles.viewOrders}>
 
-                <TouchableOpacity style={styles.totalOrders}>
-                    <Text style={styles.txtView}>Total Orders</Text>
-                    <Text style={styles.txtView}>{total}</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.totalOrders}>
-                    <Text style={styles.txtView}>Veg Orders</Text>
-                    <Text style={styles.txtView}>{orderData.veg}</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.totalOrders}>
-                    <Text style={styles.txtView}>Non-Veg Orders</Text>
-                    <Text style={styles.txtView}>{orderData.nonVeg}</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.totalOrders}>
-                    <Text style={styles.txtView}>Combo Orders</Text>
-                    <Text style={styles.txtView}>{orderData.combo}</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.totalOrders}>
-                    <Text style={styles.txtView}>Leave</Text>
-                    <Text style={styles.txtView}>0</Text>
-                </TouchableOpacity>
+                <TextView text={'Total Orders'} total={total}></TextView>
+                <TextView text={'Veg Orders'} total={orderData.veg}></TextView>
+                <TextView text={'Non-Veg Orders'} total={orderData.nonVeg}></TextView>
+                <TextView text={'Combo Orders'} total={orderData.combo}></TextView>
+                <TextView text={'Leave'} total={0}></TextView>
 
             </View>
         </View>

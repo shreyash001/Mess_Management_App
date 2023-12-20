@@ -15,38 +15,26 @@ const Home = () => {
   const navigation = useNavigation()
 
   const navigateToTotalUsers = () => {
-    console.log('View button triggered');
-    // Replace 'TotalUsers' with the appropriate screen name
     navigation.navigate('TotalUsers');
   };
 
   const navigateToActiveUsers = () => {
-    console.log('View button triggered');
-    // Replace 'TotalUsers' with the appropriate screen name
     navigation.navigate('ActiveUsers');
   };
 
   const navigateToViewPlans = () => {
-    console.log('View button triggered');
-    // Replace 'TotalUsers' with the appropriate screen name
     navigation.navigate('ViewPlan');
   };
 
   const navigateToLeave = () => {
-    console.log('View button triggered');
-    // Replace 'TotalUsers' with the appropriate screen name
     navigation.navigate('Leave');
   };
 
   const navigateToViewOrders = () => {
-    console.log('View button triggered');
-    // Replace 'TotalUsers' with the appropriate screen name
     navigation.navigate('Orders');
   };
 
   const navigateToAttendence = () => {
-    console.log('View button triggered');
-    // Replace 'TotalUsers' with the appropriate screen name
     navigation.navigate('Attendence');
   };
 
