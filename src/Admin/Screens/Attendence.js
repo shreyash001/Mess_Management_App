@@ -1,148 +1,121 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  PermissionsAndroid,
-  Image,
-  ScrollView,
-  FlatList,
-  Button
-} from 'react-native';
+import { View, Text, ScrollView, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import firestore from '@react-native-firebase/firestore';
-import { useIsFocused } from '@react-navigation/native';
-import CheckBox from '@react-native-community/checkbox';
-
+import { getAllUserDAta, userAttendence } from '../../Action/api'
+import WeekTest from './WeekTest'
 
 const Attendence = () => {
-  const [date, setDate] = useState(new Date)
-  const [userData, setUserData] = useState([])
-  const [toggleCheckBox, setToggleCheckBox] = useState(false)
+    const [attendenceData, setAttendenceData] = useState()
+    const [date, setDate] = useState(new Date())
 
-  const isFocused = useIsFocused()
-  useEffect(() => {
-    getUsers()
-  }, [isFocused])
+    useEffect(() => {
+        getData()
+    }, [date])
 
-  const getUsers = async () => {
-    await firestore().collection('Users').where('isUser', '==', true).get().then(
-      querySnapshot => {
-        let tempData: any = []
-        querySnapshot.forEach(documentSnapshot => {
-          tempData.push({
-            id: documentSnapshot.id,
-            data: documentSnapshot.data(),
-          });
-        });
-        setUserData(tempData);
-      }
+    const getData = async () => {
+        try {
+            let t1 = await userAttendence(date.toDateString())
+            setAttendenceData(t1)
+        } catch (error) {
+            console.error('Error in Attendence fetching data', error)
+        }
+    }
+
+    const handleDeliveredBtn = (userID) => {
+        console.log(userID)
+        console.log(date)
+    }
+
+    // console.log(attendenceData)
+
+
+    return (
+        <View>
+            <WeekTest date={date} onChange={(newDate) => setDate(newDate)} />
+
+            <View style={[{ flexDirection: 'row', borderTopWidth: 1, borderRadius: 10 }, styles.BtnContol]}>
+                <TouchableOpacity style={styles.mrkDeliver}>
+                    <Text style={{
+                        color: 'white',
+                        textAlign: 'center'
+                    }}>All Lunch Delivered</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.mrkDeliver}>
+                    <Text style={{
+                        color: 'white',
+                        textAlign: 'center'
+                    }}>All Dinner Delivered</Text>
+                </TouchableOpacity>
+            </View>
+
+            <FlatList
+                data={attendenceData}
+                renderItem={(user, index) => (
+                    <View style={styles.totalView} key={index}>
+                        <View style={styles.userData}>
+                            <Text style={styles.nameTxt}>Contact No. : {user.item.id}</Text>
+                            <Text style={styles.nameTxt}>Name : {user.item.name}</Text>
+                            <Text style={styles.nameTxt}>Lunch : {user.item.lunch ? 'Yes' : 'No'}</Text>
+                            <Text style={styles.nameTxt}>Dinner : {user.item.dinner ? 'Yes' : 'No'}</Text>
+                        </View>
+
+
+                        <View style={styles.BtnContol}>
+                            <TouchableOpacity onPress={() => handleDeliveredBtn(user.item.id)} style={styles.mrkDeliver}>
+                                <Text style={{
+                                    color: 'white',
+                                    textAlign: 'center'
+                                }}>Lunch Delivered</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity onPress={() => handleDeliveredBtn(user.item.id)} style={styles.mrkDeliver}>
+                                <Text style={{
+                                    color: 'white',
+                                    textAlign: 'center'
+                                }}>Dinner Delivered</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                )}
+            />
+
+        </View>
     )
-
-    // console.log(userData)
-  }
-  return (
-    <ScrollView style={styles.container}>
-      <View style={styles.dateBar}>
-        <Text style={styles.dateText}>{date.toDateString()}</Text>
-      </View>
-      <View>
-        <FlatList
-          data={userData}
-          renderItem={(item) => {
-            return (
-              item.item.data.isUser && (
-                item.item.data.orders.items !== undefined
-              ) && (item.item.data.orders.orderDate !== undefined) && (
-                <View style={styles.contentView}>
-                  <View style={styles.itemView}>
-                    <Text style={styles.nameText}>{"Name: " + item.item.data.name}</Text>
-                    <Text style={styles.memberCount}>Start Date: {item.item.data.orders.startDate}</Text>
-
-                    <Text>{"Phone No: " + item.item.data.phoneNo}</Text>
-                  </View>
-
-                  <View>
-                    <Text>Lunch</Text>
-                    <CheckBox
-                      disabled={false}
-                      value={toggleCheckBox}
-                      tintColors={{ true: '#F15927', false: 'black' }}
-                      onValueChange={(newValue) => setToggleCheckBox(newValue)}
-                    />
-                  </View>
-
-                  <View>
-                    <Text>Dinner</Text>
-                    <CheckBox
-                      disabled={false}
-                      value={toggleCheckBox}
-                      tintColors={{ true: '#F15927', false: 'black' }}
-                      onValueChange={(newValue) => setToggleCheckBox(newValue)}
-                    />
-                  </View>
-
-                </View>
-              )
-
-            )
-          }}
-        />
-      </View>
-    </ScrollView>
-  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  dateBar: {
-    backgroundColor: 'lightgrey',
-    height: 40,
-    alignItems: 'center'
-  },
-  dateText: {
-    fontSize: 20,
-    padding: 7
-  },
-  contentView: {
-    margin: 10,
-    backgroundColor: '#CAF296',
-    borderRadius: 30,
-    padding: 20,
-    height: 120,
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-    // elevation: 4
-  },
-  itemView: {
-    width: 200
-  },
-  itemImage: {
-    width: 90,
-    height: 90,
-    borderRadius: 10,
-    margin: 5,
-  },
-  nameView: {
-    width: '53%',
-    margin: 10,
-  },
+    totalView: {
+        backgroundColor: 'orange',
+        borderRadius: 10,
+        padding: 10,
+        margin: 10,
+        height: 'auto',
+        minHeight: 100,
+        flexDirection: 'row',
+        justifyContent: 'space-around'
+    },
+    userData: {
+        width: 'auto',
+        alignSelf: 'center'
 
-  nameText: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: 'black'
-  },
-
-  memberCount: {
-    fontSize: 15,
-    color: 'green',
-    fontWeight: '700',
-  },
+    },
+    nameTxt: {
+        fontSize: 15,
+        fontStyle: 'normal',
+        fontWeight: '400'
+    },
+    mrkDeliver: {
+        backgroundColor: 'green',
+        width: 'auto',
+        marginTop: 7,
+        borderRadius: 10,
+        padding: 7,
+        alignItems: 'center',
+    },
+    BtnContol: {
+        justifyContent: 'space-evenly',
+        width: 'auto'
+    }
 })
 
 export default Attendence

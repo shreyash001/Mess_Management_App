@@ -38,6 +38,10 @@ const Home = () => {
     navigation.navigate('Attendence');
   };
 
+  const navigateToTesting = () => {
+    navigation.navigate('Testing');
+  };
+
   return (
     <ScrollView style={styles.container}>
 
@@ -64,12 +68,12 @@ const Home = () => {
         </View>
       </View>
 
-      {/* <View style={styles.itemView}>
+      <View style={styles.itemView}>
         <View style={styles.orderView}>
           <Text style={styles.nameText}>Attendence</Text>
           <ViewButton text="View" onPress={navigateToAttendence} />
         </View>
-      </View> */}
+      </View>
 
       <View style={styles.itemView}>
         <View style={styles.orderView}>
@@ -84,6 +88,13 @@ const Home = () => {
           <ViewButton text="View" onPress={navigateToViewOrders} />
         </View>
       </View>
+
+      {/* <View style={styles.itemView}>
+        <View style={styles.orderView}>
+          <Text style={styles.nameText}>Testing</Text>
+          <ViewButton text="View" onPress={navigateToTesting} />
+        </View>
+      </View> */}
 
     </ScrollView>
 

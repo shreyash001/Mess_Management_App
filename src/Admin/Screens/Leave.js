@@ -2,8 +2,7 @@ import { View, Text, ScrollView, FlatList, StyleSheet, SectionList } from 'react
 import React, { useState, useEffect } from 'react'
 
 import WeekTest from './WeekTest'
-import { getDate, getLeaveData } from '../../Action/api'
-import { useIsFocused } from '@react-navigation/native'
+import { getLeaveData } from '../../Action/api'
 import CheckBox from '@react-native-community/checkbox'
 
 
@@ -11,9 +10,6 @@ const Leave = () => {
 
   const [date, setDate] = useState(new Date())
   const [leaveData, setLeaveData] = useState()
-  const [toggleCheckBox, setToggleCheckBox] = useState(false)
-
-  const isFoucoused = useIsFocused()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,13 +24,14 @@ const Leave = () => {
     fetchData()
   }, [date])
 
-  // console.log(date)
-  // console.log(leaveData)
-
 
   return (
     <View style={styles.container}>
       <WeekTest date={date} onChange={(newDate) => setDate(newDate)} />
+
+      <View style={{borderTopColor:'black', borderTopWidth:0.5, borderRadius:10, alignItems:'center'}}>
+        <Text style={{marginTop:10, marginLeft:10, fontSize:17, fontStyle:'italic'}}>Leave Users</Text>
+      </View>
 
       <View style={styles.leaveUserData}>
         {

@@ -28,6 +28,7 @@ import Leave from './Admin/Screens/Leave'
 import Orders from './Admin/Screens/Orders/Orders'
 import ActivePlanUsers from './Admin/Screens/ActivePlanUsers'
 import UserDetail from './Admin/Screens/UserDetail'
+import Testing from './Admin/Screens/Testing'
 
 const Stack = createNativeStackNavigator()
 
@@ -69,17 +70,7 @@ const AppNavigation = ({navigation}) => {
                 <Stack.Screen name='Orders' component={Orders} options={{ headerShown: true }} />
                 <Stack.Screen name='ActiveUsers' component={ActivePlanUsers} options={{ headerShown: true }} />
                 <Stack.Screen name='UserDetail' component={UserDetail} options={{ headerShown: true }} />
-
-
-
-
-
-
-
-                
-
-
-
+                <Stack.Screen name='Testing' component={Testing} options={{headerShown: true}} />
 
 
                 {/* <Stack.Screen name='Home' component={Home} options={{ headerShown: false }} />

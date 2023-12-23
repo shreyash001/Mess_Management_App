@@ -1,6 +1,85 @@
-import firestore, { FirebaseFirestoreTypes } from '@react-native-firebase/firestore';
+import firestore from '@react-native-firebase/firestore';
 import { useEffect, useState } from 'react';
 
+export const getAllUserDAta = async () => {
+    let tempData = []
+    await firestore()
+        .collection('Users')
+        .get()
+        .then(querySnapshot => {
+            querySnapshot.forEach(documentSnapshot => {
+                if (documentSnapshot.data().isUser === true) {
+                    tempData.push({
+                        id: documentSnapshot.id,
+                        data: documentSnapshot.data(),
+                    });
+                    // console.log(documentSnapshot.data())
+                }
+            });
+        })
+    // console.log(tempData)
+    return tempData;
+}
+
+export const userAttendence = async (date) => {
+
+    let selectedDate = new Date(date);
+    let tempUserData = [];
+
+    let a1 = await firestore().collection('Attendence').doc(date).get().then(async (data) => {
+        if (!data.exists) {
+            // If attendance document doesn't exist, create one
+            await firestore().collection('Attendence').doc(date).set({
+                AtDate: date,
+                delivered: false,
+                attendence: []  // Initialize the attendance array if needed
+            });
+        } else {
+            // Attendance document exists, fetch user data and compare
+            const attendanceData = data.data().attendence;
+            const usersSnapshot = await firestore().collection('Users').where('isUser', '==', true).get();
+
+            if (attendanceData && Array.isArray(attendanceData)) {
+                tempUserData = attendanceData;
+
+                // usersSnapshot.forEach(userDocument => {
+                //     const userId = userDocument.id;
+
+                //     // Check if any object in tempUserData has an id property equal to userId
+                //     const userInAttendance = tempUserData.some(item => item.id === userId);
+
+                //     if (userInAttendance) {
+                //         // User found in attendance data for the selected date
+                //         console.log(`User ${userId} attended on ${date}`);
+                //     }
+                // });
+            } else if (attendanceData == undefined) {
+                // Attendance data is not an array or is undefined:
+                usersSnapshot.forEach(userDocument => {
+                    const userStartDate = new Date(userDocument.data().planPurched.planStartDate);
+                    if (selectedDate >= userStartDate && userDocument.data().planPurched.planDayRemaning >= 1) {
+                        tempUserData.push({
+                            id: userDocument.id,
+                            name: userDocument.data().name,
+                            lunch: false,
+                            dinner: false
+                        });
+                    }
+                })
+
+                await firestore().collection('Attendence').doc(date).update({
+                    attendence: tempUserData
+                })
+            } else {
+                console.warn('Attendence Data is not Correctly Read', attendanceData)
+            }
+        }
+    }).catch(error => {
+        console.error('Error:', error);
+    });
+
+    return tempUserData
+}
 
 export const getDate = (dateInput) => {
     const date = new Date(dateInput)
@@ -18,8 +97,8 @@ export const getDate = (dateInput) => {
 export const getLeaveData = async (dateString) => {
     try {
         const data = await firestore().collection('Leave').doc(dateString).get()
-        if (data?._data?.leaveUsers != undefined) {
-            return data._data.leaveUsers
+        if (data?.data()?.leaveUsers != undefined) {
+            return data.data().leaveUsers
         }
     } catch (error) {
         console.log('error in getting leave data')

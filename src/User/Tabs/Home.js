@@ -20,25 +20,29 @@ import Header from '../../Common/Header';
 import CheckBox from '@react-native-community/checkbox';
 import firestore from '@react-native-firebase/firestore';
 
-import * as api from '../../Action/api'
+import { getLeaveData } from '../../Action/api'
+import { useIsFocused } from '@react-navigation/native';
 
-const Home = ({ navigation }) => {
+const Home = ({ navigation }:any) => {
 
   const [userData, setUserData] = useState({})
   const [toggleCheckBox1, setToggleCheckBox1] = useState(false)
   const [toggleCheckBox2, setToggleCheckBox2] = useState(false)
   const [date, setDate] = useState(new Date)
+  const isfocused = useIsFocused()
+  let tempLeave = []
+
+  
+
 
   useEffect(() => {
     getData()
-    // console.log(userData)
   }, [])
 
-  // useEffect( () => {
-  //   // console.log("Updated user data: ",userData)
-  //   api.updateUserData(userData)
-  // },[userData])
-  
+  useEffect( () => {
+    handleLeaveView()
+  },[toggleCheckBox1,toggleCheckBox2])
+
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('USER');
@@ -53,7 +57,11 @@ const Home = ({ navigation }) => {
   const handleLeaveBtn = async () => {
     console.log('leave triggered')
     const leaveData = await firestore().collection('Leave').doc(date.toDateString()).get()
-    let tempLeave = []
+
+    if(tempLeave !== undefined){
+      tempLeave.lunchLeave = toggleCheckBox1
+      tempLeave.dinnerLeave = toggleCheckBox2
+    }
 
     if (leaveData._data === undefined) {
       await firestore().collection('Leave').doc(date.toDateString())
@@ -63,24 +71,43 @@ const Home = ({ navigation }) => {
         })
       console.log('undefined handelled')
       handleLeaveBtn()
-    } else {
-      tempLeave = leaveData._data.leaveUsers
-      if (toggleCheckBox1 || toggleCheckBox2) {
-        tempLeave.push({
-          _id: userData._id,
-          name: userData.name,
-          phoneNo: userData.phoneNo,
-          lunchLeave: toggleCheckBox1,
-          dinnerLeave: toggleCheckBox2
-        })
-        alert('Leave Request send')
-      } else {
-        alert("Invalid: Empty Leave")
-      }
+    }
+    else{
+      // tempLeave = leaveData._data.leaveUsers
+      console.log(tempLeave)
+      // if (toggleCheckBox1 || toggleCheckBox2) {
+      //   tempLeave.push({
+      //     _id: userData._id,
+      //     name: userData.name,
+      //     phoneNo: userData.phoneNo,
+      //     lunchLeave: toggleCheckBox1,
+      //     dinnerLeave: toggleCheckBox2
+      //   })
+      //   alert('Leave Request send')
+      // } else {
+      //   alert("Invalid: Empty Leave")
+      // }
 
       await firestore().collection('Leave').doc(date.toDateString()).update({
         leaveUsers: tempLeave
       })
+    }
+
+  }
+
+  const handleLeaveView = async () => {
+    try {
+      const data = await getLeaveData(date.toDateString())
+      data.map( (item,index) => {
+        if(item._id === userData._id){
+          setToggleCheckBox1(item.lunchLeave)
+          setToggleCheckBox2(item.dinnerLeave)
+          tempLeave = item
+        }
+      })
+      // console.log(data)
+    } catch (error) {
+      console.error('Error in Handle leave View ', error)
     }
 
   }
@@ -92,7 +119,6 @@ const Home = ({ navigation }) => {
         title={'DaDa Biryani'}
         icon={require('../../Images/logout.png')}
       />
-
 
       <View>
         <View style={styles.userData}>

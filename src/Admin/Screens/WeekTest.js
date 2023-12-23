@@ -66,12 +66,15 @@ const WeekTest = ({ date, onChange }) => {
 
 const styles = StyleSheet.create({
     container: {
+        margin:10,
+        borderRadius:10,
         flexDirection: 'row',
         justifyContent: 'space-around',
         paddingVertical: 10,
+        backgroundColor:'#A6CF98',
     },
     weekDayText: {
-        color: 'gray',
+        color: 'black',
         marginBottom: 5,
     },
     label: {
