@@ -34,12 +34,13 @@ export const userAttendence = async (date) => {
                 delivered: false,
                 attendence: []  // Initialize the attendance array if needed
             });
+            userAttendence(date);
         } else {
             // Attendance document exists, fetch user data and compare
             const attendanceData = data.data().attendence;
             const usersSnapshot = await firestore().collection('Users').where('isUser', '==', true).get();
 
-            if (attendanceData && Array.isArray(attendanceData)) {
+            if (attendanceData && Array.isArray(attendanceData) && attendanceData.length >= 1) {
                 tempUserData = attendanceData;
 
                 // usersSnapshot.forEach(userDocument => {
@@ -53,7 +54,8 @@ export const userAttendence = async (date) => {
                 //         console.log(`User ${userId} attended on ${date}`);
                 //     }
                 // });
-            } else if (attendanceData == undefined) {
+            } 
+            else if (attendanceData.length < 1 || attendanceData === undefined) {
                 // Attendance data is not an array or is undefined:
                 usersSnapshot.forEach(userDocument => {
                     const userStartDate = new Date(userDocument.data().planPurched.planStartDate);
@@ -121,7 +123,7 @@ export const getUserLeaveData = async (userId) => {
                 }
             });
             return userleaveData
-        }else{
+        } else {
             return false
         }
 
@@ -129,7 +131,7 @@ export const getUserLeaveData = async (userId) => {
         console.error('Error in getUserLeaveData:', error);
     }
 
-    
+
 };
 
 
@@ -161,13 +163,27 @@ export const updateUserData = async (userData) => {
 
 export const getOrderDetails = async () => {
 
+    const date = new Date().toDateString()
     let tempData = [];
-
+    let leaveUsersData = await getLeaveData(date)
+    // console.log(leaveUsersData)
 
     let orderData = {
         veg: 0,
         nonVeg: 0,
-        combo: 0
+        combo: 0,
+        leave:{
+            lunch:{
+                veg:0,
+                nonVeg:0,
+                combo:0
+            },
+            dinner:{
+                veg:0,
+                nonVeg:0,
+                combo:0
+            }
+        }
     };
 
     await firestore()
@@ -183,8 +199,33 @@ export const getOrderDetails = async () => {
         })
 
     tempData.map((user, id) => {
+        let userId = user.data._id
         if (user.data.isUser == true) {
-            if (user.data.planPurched.planDayRemaning !== 0) {
+            if (user.data.planPurched.planDayRemaning > 0) {
+                let userIndex = leaveUsersData.findIndex(user => user._id === userId)
+                if (userIndex !== -1) {
+                    if(leaveUsersData[userIndex].lunchLeave){
+                        if (user.data.planPurched.planName == "Veg Plan") {
+                            orderData.leave.lunch.veg += 1;
+                        }
+                        else if (user.data.planPurched.planName == "Non-Veg Plan") {
+                            orderData.leave.lunch.nonVeg += 1;
+                        }
+                        else if (user.data.planPurched.planName == "Combo Plan ( Veg + Non-Veg )") {
+                            orderData.leave.lunch.combo += 1;
+                        }
+                    }else if(leaveUsersData[userIndex].dinnerLeave){
+                        if (user.data.planPurched.planName == "Veg Plan") {
+                            orderData.leave.lunch.veg += 1;
+                        }
+                        else if (user.data.planPurched.planName == "Non-Veg Plan") {
+                            orderData.leave.lunch.nonVeg += 1;
+                        }
+                        else if (user.data.planPurched.planName == "Combo Plan ( Veg + Non-Veg )") {
+                            orderData.leave.lunch.combo += 1;
+                        }
+                    }
+                }
                 if (user.data.planPurched.planName == "Veg Plan") {
                     orderData.veg += 1;
                 }
@@ -194,6 +235,7 @@ export const getOrderDetails = async () => {
                 else if (user.data.planPurched.planName == "Combo Plan ( Veg + Non-Veg )") {
                     orderData.combo += 1;
                 }
+
             }
         }
     })

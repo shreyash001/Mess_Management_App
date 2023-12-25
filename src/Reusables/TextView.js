@@ -1,9 +1,9 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 
-export const TextView = ({ text, total }:any) => {
+export const TextView = ({ text, total }) => {
     return (
-        <TouchableOpacity style={styles.totalOrders}>
+        <TouchableOpacity style={styles.totalOrders} disabled={true}>
             <Text style={styles.txtView}>{text}</Text>
             <Text style={styles.txtView}>{total}</Text>
         </TouchableOpacity>

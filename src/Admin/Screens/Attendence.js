@@ -14,6 +14,7 @@ const Attendence = () => {
     const getData = async () => {
         try {
             let t1 = await userAttendence(date.toDateString())
+            // console.log(t1)
             setAttendenceData(t1)
         } catch (error) {
             console.error('Error in Attendence fetching data', error)
