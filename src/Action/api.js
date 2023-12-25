@@ -106,6 +106,33 @@ export const getLeaveData = async (dateString) => {
 
 }
 
+export const getUserLeaveData = async (userId) => {
+    const date = new Date();
+    let userleaveData = [];
+
+    try {
+        const usersSnapshot = await firestore().collection('Leave').doc(date.toDateString()).get();
+        if (usersSnapshot.exists) {
+            const leaveData = usersSnapshot.data().leaveUsers;
+
+            leaveData.forEach(userDocument => {
+                if (userDocument._id === userId) {
+                    userleaveData = userDocument;
+                }
+            });
+            return userleaveData
+        }else{
+            return false
+        }
+
+    } catch (error) {
+        console.error('Error in getUserLeaveData:', error);
+    }
+
+    
+};
+
+
 //getting user startdate and reducing it as the day changes
 export const updateUserData = async (userData) => {
 

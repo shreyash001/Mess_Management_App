@@ -13,35 +13,30 @@ import {
   BackHandler,
   Alert
 } from 'react-native';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from '../../Common/Header';
 import CheckBox from '@react-native-community/checkbox';
 import firestore from '@react-native-firebase/firestore';
 
-import { getLeaveData } from '../../Action/api'
+import { getUserLeaveData } from '../../Action/api'
 import { useIsFocused } from '@react-navigation/native';
 
-const Home = ({ navigation }:any) => {
+const Home = ({ navigation }: any) => {
 
   const [userData, setUserData] = useState({})
   const [toggleCheckBox1, setToggleCheckBox1] = useState(false)
   const [toggleCheckBox2, setToggleCheckBox2] = useState(false)
-  const [date, setDate] = useState(new Date)
-  const isfocused = useIsFocused()
-  let tempLeave = []
-
-  
-
+  const [date, setDate] = useState(new Date())
 
   useEffect(() => {
     getData()
   }, [])
 
-  useEffect( () => {
-    handleLeaveView()
-  },[toggleCheckBox1,toggleCheckBox2])
+  useEffect(() => {
+    fetchData();
+  }, [userData._id])
 
   const getData = async () => {
     try {
@@ -55,62 +50,78 @@ const Home = ({ navigation }:any) => {
   };
 
   const handleLeaveBtn = async () => {
-    console.log('leave triggered')
-    const leaveData = await firestore().collection('Leave').doc(date.toDateString()).get()
+    const userId = userData._id
+    const leaveDoc = await firestore().collection('Leave').doc(date.toDateString()).get()
+    if (leaveDoc.exists) {
+      // Get the current leaveUsers array
+      const leaveUsers = leaveDoc.data().leaveUsers;
 
-    if(tempLeave !== undefined){
-      tempLeave.lunchLeave = toggleCheckBox1
-      tempLeave.dinnerLeave = toggleCheckBox2
-    }
+      // Find the index of the user in the array
+      const userIndex = leaveUsers.findIndex(user => user._id === userId);
 
-    if (leaveData._data === undefined) {
-      await firestore().collection('Leave').doc(date.toDateString())
-        .set({
-          date: date.toDateString(),
-          leaveUsers: []
-        })
-      console.log('undefined handelled')
-      handleLeaveBtn()
-    }
-    else{
-      // tempLeave = leaveData._data.leaveUsers
-      console.log(tempLeave)
-      // if (toggleCheckBox1 || toggleCheckBox2) {
-      //   tempLeave.push({
-      //     _id: userData._id,
-      //     name: userData.name,
-      //     phoneNo: userData.phoneNo,
-      //     lunchLeave: toggleCheckBox1,
-      //     dinnerLeave: toggleCheckBox2
-      //   })
-      //   alert('Leave Request send')
-      // } else {
-      //   alert("Invalid: Empty Leave")
-      // }
+      if (toggleCheckBox1 || toggleCheckBox2) {
+        if (userIndex !== -1) {
+          // If the user is found, update the specific fields
+          leaveUsers[userIndex].lunchLeave = toggleCheckBox1;
+          leaveUsers[userIndex].dinnerLeave = toggleCheckBox2;
 
-      await firestore().collection('Leave').doc(date.toDateString()).update({
-        leaveUsers: tempLeave
-      })
-    }
-
-  }
-
-  const handleLeaveView = async () => {
-    try {
-      const data = await getLeaveData(date.toDateString())
-      data.map( (item,index) => {
-        if(item._id === userData._id){
-          setToggleCheckBox1(item.lunchLeave)
-          setToggleCheckBox2(item.dinnerLeave)
-          tempLeave = item
+          // Update the document with the modified leaveUsers array
+          Alert.alert('Updated', 'Request updated')
+        } else {
+          let c1 = toggleCheckBox1 || false;
+          let c2 = toggleCheckBox2 || false;
+          // If the user is not found, add them to the leaveUsers array
+          leaveUsers.push({
+            _id: userId,
+            name: userData.name,
+            lunchLeave: c1,
+            dinnerLeave: c2,
+          });
+          // // Update the document with the modified leaveUsers array
+          Alert.alert('Added', 'User added to leave list');
+          console.log('Else working')
         }
-      })
-      // console.log(data)
-    } catch (error) {
-      console.error('Error in Handle leave View ', error)
-    }
+        await firestore().collection('Leave').doc(date.toDateString()).update({
+          leaveUsers: leaveUsers,
+        });
+      } else {
+        if (userIndex !== -1) {
+          await firestore().collection('Leave').doc(date.toDateString()).update({
+            leaveUsers: firestore.FieldValue.arrayRemove(leaveUsers[userIndex]),
+          });
+        }
+        Alert.alert('Invalid Request', `No leave data found, Deleting ${userId} Leave from List`)
+      }
 
+
+    } else {
+      // If the document doesn't exist, create it with the user data
+      await firestore().collection('Leave').doc(date.toDateString()).set({
+        date: date.toDateString(),
+        leaveUsers: [{
+          _id: userId,
+          name: userData.name,
+          lunchLeave: toggleCheckBox1,
+          dinnerLeave: toggleCheckBox2,
+        }],
+      });
+      Alert.alert('New Request', 'Request Send')
+    }
   }
+
+  const fetchData = async () => {
+    try {
+      const userLeaveData = await getUserLeaveData(userData._id);
+      // Check if leave data is defined before updating state
+      if (userLeaveData) {
+        const { lunchLeave, dinnerLeave } = userLeaveData;
+        setToggleCheckBox1(lunchLeave);
+        setToggleCheckBox2(dinnerLeave);
+      }
+    } catch (error) {
+      console.error('Error handling getUserLeaveData:', error);
+    }
+  };
 
   return (
     <ScrollView style={styles.container}>
@@ -196,7 +207,9 @@ const Home = ({ navigation }:any) => {
               handleLeaveBtn()
             }}
             style={styles.viewBtn} >
-            <Text style={{ color: 'white', padding: 5, alignSelf: 'center', fontWeight: 700, fontSize: 15 }}>Request</Text>
+            <Text style={{ color: 'white', padding: 5, alignSelf: 'center', fontWeight: 700, fontSize: 15 }}>
+              {toggleCheckBox1 || toggleCheckBox2 ? 'Update':'Request'}
+            </Text>
           </TouchableOpacity>
 
 
