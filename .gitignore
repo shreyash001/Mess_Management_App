@@ -134,6 +134,7 @@ dist
 .gradle/
 build/
 android/*
+ios/*
 
 # Local configuration file (sdk path, etc)
 local.properties
