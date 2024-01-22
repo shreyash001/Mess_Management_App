@@ -154,9 +154,6 @@ const Home = ({ navigation }: any) => {
               {/* <Text style={[styles.nameText, { color: 'black' }]}>Meal Left: 60</Text> */}
             </View>
           </View>
-
-
-
         </View>
       </View>
 
