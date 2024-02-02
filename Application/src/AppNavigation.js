@@ -52,7 +52,8 @@ const AppNavigation = ({navigation}) => {
                 <Stack.Screen name='OrderStatus' component={OrderStatus} options={{ headerShown: false }} />
                 <Stack.Screen name='ViewOrder' component={ViewOrders} options={{ headerShown: false }} />
                 <Stack.Screen name='AskLeave' component={AskLeave} options={{ headerShown: true }} />
-                <Stack.Screen name='Home2' component={Home2} options={{ headerShown: true }} />
+                <Stack.Screen name='Home2' component={Home2} options={{ headerShown: false }} />
+
 
 
 

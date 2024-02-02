@@ -5,9 +5,11 @@ import {
   ScrollView,
   useWindowDimensions,
   Button,
+  Image,
 } from 'react-native';
-import RenderHTML from 'react-native-render-html';
+// import RenderHTML from 'react-native-render-html';
 import Card from '../../Reusables/Card.js';
+import Header from '../../Common/Header.js';
 
 //  Here Started........
 const source = {
@@ -48,58 +50,43 @@ const Home2 = () => {
   // return <RenderHTML contentWidth={useWindowDimensions} source={source} />;
   return (
     <ScrollView>
-      <View style={styles.location}>
+      <Header
+        goBackIcon={require('../../Images/return.png')}
+        title={'DaDa Biryani'}
+        // icon={require('../../Images/logout.png')}
+        cart={require('../../Images/cart.png')}
+      />
+
+      {/* <View style={styles.location}>
         <Text style={styles.locTxt}>location</Text>
-      </View>
+      </View> */}
 
       <View style={styles.Up}>
-        <Text style={styles.UpTxt}>Up To</Text>
-        <Text style={styles.OffTxt}>70% OFF</Text>
-        <Text style={styles.WithTxt}>with free delivery</Text>
+        <View style={{marginBottom:10 }}>
+          <Text style={styles.UpTxt}>Up To</Text>
+          <Text style={styles.OffTxt}>70% OFF</Text>
+          <Text style={styles.WithTxt}>with free delivery</Text>
+        </View>
+        <Image source={require('../../Images/chicken.png')} style={styles.chicken} />
       </View>
 
       <View style={styles.Eat}>
         <Text style={styles.EatTxt}>Hungry for dinner?</Text>
       </View>
 
-      {/* <View style={styles.Image}>
-        <Text style={styles.ImgTxt}>Foods Images</Text>
-      </View> */}
-
-      {/* <View style={styles.Rest}>
-        <Text style={styles.RexTxt}>888 restaurants around you</Text>
-      </View> */}
-
-      {/* <View style={styles.Bir}>
-        <Text style={styles.BirTxt}>Biryani Image</Text>
-      </View> */}
-
       <View style={styles.Box}>
         <Card
-          t1={'FOOD DELIVERY'}
-          t2={'FROM RESTAURANTS'}
+          t1={'ORDER NOW'}
+          t2={'VIEW MENU'}
           t3={'UP TO 60% OFF'}
         />
-        <Card t1={'INSTAMART'} t2={'INSTANT GROCERY'} t3={'FREE DELIVERY'} />
+        <Card t1={'VIEW ORDERS'} t2={'VIEW PREVIOUS ORDERS'} t3={'CHECK NOW'} />
       </View>
 
-      <View style={styles.Box}>
-        <Card
-          t1={'DINEOUT'}
-          t2={'EAT OUT  AND SAVE MORE'}
-          t3={'NO MEMBERSHIP NEEDED'}
-        />
-        <Card
-          t1={'GENIE'}
-          t2={'PICK-UP & DROP'}
-          t3={'NO MEMBERSHIP NEEDED'}
-        />
-      </View>
-
-      <View style={styles.Refer}>
+      {/* <View style={styles.Refer}>
         <Text>EASIEST WAY TO</Text>
         <Text>Refer And Earn!</Text>
-      </View>
+      </View> */}
 
       <View style={styles.Foot}>
         <Text style={styles.LivTxt}>Live</Text>
@@ -127,18 +114,25 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   Up: {
-    borderWidth: 2,
-    borderColor: 'red',
+    display: 'flex',
+    flexDirection: 'row',
+    flex: 1,
+    // borderWidth: 2,
+    // borderColor: 'red',
     borderRadius: 20,
-    height: 200,
+    maxHeight: "15%",
     margin: 15,
     backgroundColor: '#ef4f5f',
-    justifyContent: 'center',
+    // backgroundColor:'white',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding:10,
+
     elevation: 20,
   },
   UpTxt: {
     fontSize: 20,
-    // marginTop:30,
+    marginTop: 30,
     marginLeft: 30,
     color: 'white',
     fontWeight: '700',
@@ -160,7 +154,8 @@ const styles = StyleSheet.create({
     // borderColor:'red',
     height: 50,
     justifyContent: 'center',
-    margin: 15,
+    marginTop: 15,
+    marginLeft:10,
     borderRadius: 15,
     // backgroundColor:'#ffffff'
   },
@@ -211,25 +206,12 @@ const styles = StyleSheet.create({
     // borderColor: 'green',
     borderRadius: 20,
     height: 200,
-    margin: 15,
+    margin: 1,
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     flexDirection: 'row',
-  },
-  Box1: {
-    // borderWidth:2,
-    // borderColor:'blue',
-    borderRadius: 20,
-    height: 200,
-    width: 172,
-    backgroundColor: '#ffffff',
-    elevation: 20,
-  },
-  Box1Txt: {
-    fontSize: 18,
-    fontWeight: '700',
-    marginLeft: 10,
-    marginTop: 20,
+    // backgroundColor:'green',
+    padding:0
   },
   RestTxt: {
     fontSize: 13,
@@ -276,6 +258,11 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginLeft: 30,
   },
+  chicken: {
+    height: "100%",
+    width: '45%',
+    // backgroundColor: 'yellow'
+  }
 });
 
 export default Home2;

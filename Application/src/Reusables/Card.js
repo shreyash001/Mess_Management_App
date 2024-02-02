@@ -11,33 +11,26 @@ const Card = ({t1, t2, t3}) => {
 };
 
 const styles = StyleSheet.create({
-  Box: {
-    // borderWidth:2,
-    // borderColor:'green',
-    borderRadius: 20,
-    height: 200,
-    margin: 15,
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-  },
   Box1: {
     // borderWidth:2,
     // borderColor:'blue',
     borderRadius: 20,
-    height: 200,
-    width: 172,
+    height: '70%',
+    width: '45%',
     backgroundColor: '#ffffff',
+    // backgroundColor:'red',
     elevation: 20,
+    alignSelf:'center',
+    margin:0
   },
   Box1Txt: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: '700',
     marginLeft: 10,
     marginTop: 20,
   },
   RestTxt: {
-    fontSize: 13,
+    fontSize: 15,
     marginLeft: 10,
     marginTop: 5,
   },
@@ -47,7 +40,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(250 105 0)',
     width: 145,
     borderRadius: 10,
-    fontSize: 11,
+    fontSize: 17,
+    padding:7
   },
 });
 
