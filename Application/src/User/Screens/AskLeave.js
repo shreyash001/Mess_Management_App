@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React,{useState} from 'react'
+import AskLeaveComponent from '../../Components/AskLeaveComponent.js';
 
 const AskLeave = () => {
   const [date,setDate] = useState(new Date)
   return (
     <View>
-      <Text>AskLeave works</Text>
-      <Text>{date.toDateString()}</Text>
+      <AskLeaveComponent/>
 
     </View>
   )

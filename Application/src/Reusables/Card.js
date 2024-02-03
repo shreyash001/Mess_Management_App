@@ -1,12 +1,12 @@
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 
-const Card = ({t1, t2, t3}) => {
+const Card = ({t1, t2, t3, onPress}) => {
   return (
-    <View style={styles.Box1}>
+    <TouchableOpacity style={styles.Box1} onPress={onPress}>
       <Text style={styles.Box1Txt}>{t1}</Text>
       <Text style={styles.RestTxt}>{t2}</Text>
       <Text style={styles.DiscTxt}>{t3}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

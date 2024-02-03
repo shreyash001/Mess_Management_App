@@ -79,7 +79,9 @@ const Login = ({ navigation }) => {
             navigation.navigate('AdminHome')
           } else {
             storeData(Users.docs[0]._data)
-            navigation.navigate('UserHome')
+            // navigation.navigate('UserHome')
+            navigation.navigate('Home2')
+
           }
           // console.log("Login Triggerd")
         } else {

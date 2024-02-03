@@ -6,96 +6,114 @@ import {
   useWindowDimensions,
   Button,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 // import RenderHTML from 'react-native-render-html';
 import Card from '../../Reusables/Card.js';
 import Header from '../../Common/Header.js';
+import React, { useEffect, useRef, useState } from 'react';
+import { useIsFocused, useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import firestore from '@react-native-firebase/firestore';
+import CheckBox from '@react-native-community/checkbox';
 
-//  Here Started........
-const source = {
-  html: `
-    <div style= " border: 2px solid grey; height: 50px; width:95%; margin-left:10px; margin-top: 10px;
-      border-radius: 20px">
-      <p style= " margin-left: 10px">location</p>
-    </div>
 
-    <div style= " border: 2px solid blue; height: 200px; margin-top:10px; width:95%; margin-left: 10px;
-     border-radius: 30px; background-color: #ef4f5f; margin-bottom:10px">
-     <p style= " color: white; font-weight: 600; margin-left: 30px">Up To</p>
-     <p style= " font-size: 30px; font-weight:900; margin-left: 30px; color: white">70% OFF</p>
-     <p style= " margin-left: 30px; font-size: 20px; font-weight: 500; color: white">with free delivery</p>
-    </div>
-
-    <div style= " border: 2px solid red; height: 60px;">
-     <p style= " margin-left: 30px; font-weight: 700; font-size: 20px">Eat what makes you happy</p>
-    </div>
-
-    <div style= " border: 2px solid red; height:152px; flex-direction: row; display: flex-inline">
-        <div style= " border: 1px solid blue; height: 150px; width:30%"></div>
-        <div style= " border: 1px solid blue; height: 150px; width:30%"></div>
-        <div style= " border: 1px solid blue; height: 150px; width:30%"></div>
-        <div style= " border: 1px solid blue; height: 150px; width:30%"></div>
-        <div style= " border: 1px solid blue; height: 150px; width:30%"></div>
-        <div style= " border: 1px solid blue; height: 150px; width:30%"></div>
-    </div>
-
-    `,
-};
-
-const handleLogin = () => {
-  console.log('Hello');
-};
 
 const Home2 = () => {
+
+  const navigation = useNavigation()
+  const [userData, setUserData] = useState({});
+
+  useEffect(() => {
+    getData()
+  })
+
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('USER');
+      let data = JSON.parse(jsonValue);
+      setUserData(data);
+      // console.log('Data retrived sucessfully')
+    } catch (e) {
+      console.log('error reading async value');
+    }
+  };
+
   // return <RenderHTML contentWidth={useWindowDimensions} source={source} />;
   return (
-    <ScrollView>
+    <View style={{ flex: 1,marginBottom:10 }}>
+
       <Header
-        goBackIcon={require('../../Images/return.png')}
+        // goBackIcon={require('../../Images/return.png')}
         title={'DaDa Biryani'}
         // icon={require('../../Images/logout.png')}
         cart={require('../../Images/cart.png')}
       />
+      <ScrollView>
 
-      {/* <View style={styles.location}>
-        <Text style={styles.locTxt}>location</Text>
-      </View> */}
+        {/* <View style={styles.location}>
+          <Text style={styles.locTxt}>location</Text>
+        </View> */}
 
-      <View style={styles.Up}>
-        <View style={{marginBottom:10 }}>
-          <Text style={styles.UpTxt}>Up To</Text>
-          <Text style={styles.OffTxt}>70% OFF</Text>
-          <Text style={styles.WithTxt}>with free delivery</Text>
+        <View style={styles.Up}>
+          <View style={styles.uptxtContainer}>
+            <Text style={styles.UpTxt}>Up To</Text>
+            <Text style={styles.OffTxt}>70% OFF</Text>
+            <Text style={styles.WithTxt}>with free delivery</Text>
+
+          </View>
+          <Image source={require('../../Images/chicken.png')} style={styles.chicken} />
         </View>
-        <Image source={require('../../Images/chicken.png')} style={styles.chicken} />
-      </View>
 
-      <View style={styles.Eat}>
-        <Text style={styles.EatTxt}>Hungry for dinner?</Text>
-      </View>
+        <View style={styles.Eat}>
+          <Text style={styles.EatTxt}>Hungry for dinner?</Text>
+        </View>
 
-      <View style={styles.Box}>
-        <Card
-          t1={'ORDER NOW'}
-          t2={'VIEW MENU'}
-          t3={'UP TO 60% OFF'}
-        />
-        <Card t1={'VIEW ORDERS'} t2={'VIEW PREVIOUS ORDERS'} t3={'CHECK NOW'} />
-      </View>
+        <View style={styles.Box}>
+          <Card
+            t1={'ORDER NOW'}
+            t2={'VIEW MENU'}
+            t3={'UP TO 60% OFF'}
+            onPress={() => navigation.navigate('Plans')}
+          />
+          <Card t1={'VIEW ORDERS'} t2={'VIEW PREVIOUS ORDERS'} t3={'CHECK NOW'}
+            onPress={() => navigation.navigate('ViewOrder', {
+              userData: userData,
+            })} />
+        </View>
 
-      {/* <View style={styles.Refer}>
-        <Text>EASIEST WAY TO</Text>
-        <Text>Refer And Earn!</Text>
-      </View> */}
+        <View style={styles.Box}>
+          <Card
+            t1={'LEAVE'}
+            t2={'ASK LEAVE'}
+            t3={'NOW OR NEVER'}
+            onPress={() => navigation.navigate('AskLeave')}
+          />
+          <Card
+            t1={'ATTENDENCE'}
+            t2={'CHECK'}
+            t3={'NOW OR NEVER'}
+            // onPress={() => navigation.navigate('Plans')}
+          />
+        </View>
 
-      <View style={styles.Foot}>
-        <Text style={styles.LivTxt}>Live</Text>
-        <Text style={styles.MidTxt}>it up!</Text>
-        <Text style={styles.CrafTxt}>
-          Crafted with 💖 in Uttar Pradesh.India
-        </Text>
-      </View>
-    </ScrollView>
+
+        {/* <View style={styles.Refer}>
+          <Text>EASIEST WAY TO</Text>
+          <Text>Refer And Earn!</Text>
+        </View> */}
+
+        <View style={styles.Foot}>
+          <Text style={styles.LivTxt}>Live</Text>
+          <Text style={styles.MidTxt}>it up!</Text>
+          <Text style={styles.CrafTxt}>
+            Crafted with 💖 by Praduman
+          </Text>
+        </View>
+      </ScrollView>
+
+    </View>
+
   );
 };
 
@@ -116,102 +134,60 @@ const styles = StyleSheet.create({
   Up: {
     display: 'flex',
     flexDirection: 'row',
-    flex: 1,
-    // borderWidth: 2,
-    // borderColor: 'red',
+    // flex: 1,
     borderRadius: 20,
-    maxHeight: "15%",
+    minHeight: "15%",
     margin: 15,
     backgroundColor: '#ef4f5f',
-    // backgroundColor:'white',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
-    padding:10,
+    padding: 10,
+    // paddingBottom:20,
 
     elevation: 20,
   },
+  uptxtContainer: {
+    // backgroundColor:'yellow',
+    alignItems: 'flex-start',
+    padding: 10
+  },
   UpTxt: {
     fontSize: 20,
-    marginTop: 30,
-    marginLeft: 30,
+    // marginTop: 30,
+    // marginLeft: 30,
     color: 'white',
     fontWeight: '700',
   },
   OffTxt: {
     fontSize: 30,
-    marginLeft: 30,
+    // marginLeft: 30,
     color: 'white',
     fontWeight: '700',
   },
   WithTxt: {
     fontSize: 20,
-    marginLeft: 30,
+    // marginLeft: 30,
     color: 'white',
     fontWeight: '700',
   },
   Eat: {
-    // borderWidth:2,
-    // borderColor:'red',
     height: 50,
     justifyContent: 'center',
-    marginTop: 15,
-    marginLeft:10,
-    borderRadius: 15,
-    // backgroundColor:'#ffffff'
+    marginLeft: 10,
   },
   EatTxt: {
     fontSize: 30,
     fontWeight: '700',
     marginLeft: 15,
   },
-  // Image:{
-  //   borderWidth:2,
-  //   borderColor:'grey',
-  //   height:150,
-  //   justifyContent:'center',
-
-  // },
-  // ImgTxt:{
-  //   fontSize:50,
-  //   fontWeight:'700',
-  //   marginLeft:20
-  // },
-  // Rest:{
-  //   borderWidth:2,
-  //   borderColor:'red',
-  //   height:50,
-  //   justifyContent:'center'
-  // },
-  // RexTxt:{
-  //   fontSize:20,
-  //   fontWeight:'700',
-  //   marginLeft:20
-  // },
-  // Bir:{
-  //   borderWidth:2,
-  //   borderColor:'red',
-  //   borderRadius:20,
-  //   height:200,
-  //   margin:10,
-  //   backgroundColor:'#d3aa7d',
-  //   justifyContent:'center'
-  // },
-  // BirTxt:{
-  //   fontSize:50,
-  //   fontWeight:'700',
-  //   marginLeft:20
-  // },
   Box: {
-    // borderWidth: 2,
-    // borderColor: 'green',
     borderRadius: 20,
-    height: 200,
+    minHeight: 180,
     margin: 1,
     display: 'flex',
     justifyContent: 'space-around',
     flexDirection: 'row',
     // backgroundColor:'green',
-    padding:0
   },
   RestTxt: {
     fontSize: 13,
@@ -234,19 +210,24 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   Foot: {
-    height: 400,
+    height: 300,
+    // flex: 1,
     // borderWidth:2,
     // borderColor:'red',
-    margin: 15,
+    margin: 10,
+    // bottom:20,
     borderRadius: 20,
     justifyContent: 'center',
     backgroundColor: '#ffffff',
+    marginBottom: 10,
+    paddingBottom: 20,
   },
   LivTxt: {
     fontSize: 100,
     fontWeight: '900',
     marginLeft: 30,
     color: 'rgb(92 91 90)',
+    // backgroundColor:'red'
   },
   MidTxt: {
     fontSize: 100,
@@ -260,8 +241,12 @@ const styles = StyleSheet.create({
   },
   chicken: {
     height: "100%",
-    width: '45%',
+    width: '35%',
+    objectFit: 'fill'
     // backgroundColor: 'yellow'
+  },
+  orderView: {
+    // backgroundColor: 'red'
   }
 });
 
