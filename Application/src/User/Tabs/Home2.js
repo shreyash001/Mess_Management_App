@@ -107,7 +107,7 @@ const Home2 = () => {
           <Text style={styles.LivTxt}>Live</Text>
           <Text style={styles.MidTxt}>it up!</Text>
           <Text style={styles.CrafTxt}>
-            Crafted with 💖 by Praduman
+            Crafted with 💖 by Pradumn
           </Text>
         </View>
       </ScrollView>
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   },
   Box: {
     borderRadius: 20,
-    minHeight: 180,
+    minHeight: 230,
     margin: 1,
     display: 'flex',
     justifyContent: 'space-around',
