@@ -10,10 +10,10 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // const { height, width } = Dimensions.get('window');
-const Header = ({ title, icon, count, onClickIcon,goBackIcon }) => {
+const Header = ({ title, icon, count, onClickIcon, goBackIcon, cart }) => {
   const navigation = useNavigation()
 
-  const handleLogout = async() => {
+  const handleLogout = async () => {
     await AsyncStorage.removeItem('USER').then(
       () => {
         { console.log('logout Sucessful') }
@@ -27,19 +27,19 @@ const Header = ({ title, icon, count, onClickIcon,goBackIcon }) => {
       {
         goBackIcon && (
           <View
-          style={{
-            width: 10,
-            height: 50,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.goBack()
+            style={{
+              width: 10,
+              height: 50,
+              justifyContent: 'center',
+              alignItems: 'center',
             }}>
-            <Image source={goBackIcon} style={styles.icon} />
-          </TouchableOpacity>
-        </View>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.goBack()
+              }}>
+              <Image source={goBackIcon} style={styles.icon} />
+            </TouchableOpacity>
+          </View>
         )
       }
       <Text style={styles.title}>{title}</Text>
@@ -60,6 +60,24 @@ const Header = ({ title, icon, count, onClickIcon,goBackIcon }) => {
               })
             }}>
             <Image source={icon} style={styles.icon} />
+          </TouchableOpacity>
+        </View>
+      )}
+
+      {cart && (
+        <View
+          style={{
+            width: 50,
+            height: 50,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <TouchableOpacity
+            onPress={() => {
+              // handleLogout()
+              navigation.navigate('UserCart')
+            }}>
+            <Image source={cart} style={styles.icon} />
           </TouchableOpacity>
         </View>
       )}

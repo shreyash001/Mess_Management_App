@@ -29,13 +29,14 @@ import Orders from './Admin/Screens/Orders/Orders'
 import ActivePlanUsers from './Admin/Screens/ActivePlanUsers'
 import UserDetail from './Admin/Screens/UserDetail'
 import Testing from './Admin/Screens/Testing'
+import Home2 from './User/Tabs/Home2'
 
 const Stack = createNativeStackNavigator()
 
 const AppNavigation = ({navigation}) => {
     return (
         <NavigationContainer >
-            <Stack.Navigator initialRouteName='login'>
+            <Stack.Navigator>
                 <Stack.Screen name='Splash' component={Splash} options={{ headerShown: false }} />
                 <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name='Register' component={Register} options={{ headerShown: false }} />
@@ -51,6 +52,9 @@ const AppNavigation = ({navigation}) => {
                 <Stack.Screen name='OrderStatus' component={OrderStatus} options={{ headerShown: false }} />
                 <Stack.Screen name='ViewOrder' component={ViewOrders} options={{ headerShown: false }} />
                 <Stack.Screen name='AskLeave' component={AskLeave} options={{ headerShown: true }} />
+                <Stack.Screen name='Home2' component={Home2} options={{ headerShown: false }} />
+
+
 
 
 

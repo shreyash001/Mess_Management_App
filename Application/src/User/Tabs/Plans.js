@@ -106,6 +106,7 @@ const Plans = () => {
     <View style={styles.container}>
 
       <Header
+        goBackIcon={require('../../Images/return.png')}
         title={'Plans'}
         icon={require('../../Images/logout.png')}
         count={cartCount}
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F2FFE9',
-    marginBottom:60
+    // marginBottom:60
 
   },
   itemView: {

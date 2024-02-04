@@ -14,15 +14,16 @@ const Login = ({ navigation }) => {
   // const [buttonWidth, setButtonWidth] = useState(Dimensions.get('window').width / 2);
 
   useEffect(() => {
-    checkStoredData()
+    // checkStoredData()
 
     // console.log(buttonWidth)
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      backAction,
-    );
+    
+    // const backHandler = BackHandler.addEventListener(
+    //   'hardwareBackPress',
+    //   backAction,
+    // );
 
-    return () => (backHandler.remove());
+    // return () => (backHandler.remove());
 
 
   }, [isFocused])
@@ -79,7 +80,9 @@ const Login = ({ navigation }) => {
             navigation.navigate('AdminHome')
           } else {
             storeData(Users.docs[0]._data)
-            navigation.navigate('UserHome')
+            // navigation.navigate('UserHome')
+            navigation.navigate('Home2')
+
           }
           // console.log("Login Triggerd")
         } else {
@@ -147,10 +150,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'whitesmoke',
     marginBottom: 5,
     justifyContent:'center',
-    // backgroundColor:'red'
-    // alignContent:'center',
-    // alignItems:'center',
-    // alignSelf:'center'
   },
   title: {
     fontSize: 20,
@@ -163,7 +162,6 @@ const styles = StyleSheet.create({
     flexDirection:"row",
     alignSelf:'center',
     justifyContent: 'space-between',
-    // backgroundColor:'red'
   },
   inputStyle: {
     paddingLeft: 20,
